@@ -73,3 +73,7 @@ app.post("login", async (req, res) => {
         return res.status(500).json({error: "Internal Server Error"});
     }
 });
+
+app.listen(3000, () => {
+    console.log('Server running on http://localhost:3000')
+})
