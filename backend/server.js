@@ -76,6 +76,6 @@ app.post("/login", async (req, res) => {
     }
 });
 
-app.listen(3001, () => {
-    console.log('Server running on http://localhost:3001')
+app.listen(8000, () => {
+    console.log('Server running on http://localhost:8000')
 })
