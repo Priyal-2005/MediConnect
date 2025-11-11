@@ -1,7 +1,7 @@
 const express = require('express');
 const {PrismaClient} = require("@prisma/client");
 const bcrypt = require('bcrypt');
-var jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
 const prisma = new PrismaClient();
 const app = express();
@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 // register
-app.post("register", async (req, res) => {
+app.post("/register", async (req, res) => {
     try {
         const {name, email, password, role} = req.body;
 
@@ -45,7 +45,7 @@ app.post("register", async (req, res) => {
 })
 
 // login
-app.post("login", async (req, res) => {
+app.post("/login", async (req, res) => {
     try {
         const {email, password} = req.body;
         const user = await prisma.user.findUnique({
@@ -61,7 +61,7 @@ app.post("login", async (req, res) => {
             return res.status(401).json({message: "Invalid credentials"});
         }
         else {
-            const token = jwt.sign({id: user.id, email: user.email}, process.env.SECRET_KEY);
+            const token = jwt.sign({id: user.user_id, email: user.email}, process.env.SECRET_KEY);
             return res.status(200).json({
                 message: "Login successfuk",
                 token: token,
