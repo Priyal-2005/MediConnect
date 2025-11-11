@@ -8,7 +8,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   return (
-    <>
+    <div>
       {page === "login" && (
         <Login 
         onLogin={(userData) => {
@@ -28,7 +28,7 @@ function App() {
           setPage("login");
         }}/>
       )}
-    </>
+    </div>
   )
 }
 

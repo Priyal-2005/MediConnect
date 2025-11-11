@@ -2,10 +2,12 @@ const express = require('express');
 const {PrismaClient} = require("@prisma/client");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const cors = require('cors');
 
 const prisma = new PrismaClient();
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 // register
@@ -74,6 +76,6 @@ app.post("/login", async (req, res) => {
     }
 });
 
-app.listen(3000, () => {
-    console.log('Server running on http://localhost:3000')
+app.listen(3001, () => {
+    console.log('Server running on http://localhost:3001')
 })
