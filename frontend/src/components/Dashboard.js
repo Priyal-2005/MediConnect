@@ -24,8 +24,8 @@ function Dashboard({user, onLogout}) {
 
     return (
         <div>
-            <h2>User Dashboard</h2>
-            <h1>Hello {userData.name}!</h1>
+            <h1>User Dashboard</h1>
+            <h2>Hello {userData.name}!</h2>
             <p>Role: {userData.role}</p>
             <button onClick={onLogout}>Logout</button>
         </div>
