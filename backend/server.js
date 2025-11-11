@@ -76,6 +76,29 @@ app.post("/login", async (req, res) => {
     }
 });
 
+// user
+app.get("/user", async (req, res) => {
+    const {email} = req.query;
+    try {
+        const user = await prisma.user.findUnique({
+            where: {email: email},
+            select : {
+                id: true,
+                name: true,
+                email: true,
+                role: true
+            }
+        })
+
+        if (!user) {
+            return res.status(404).json({message: "User not found"});
+        }
+    }
+    catch (error) {
+        return res.status(500).json({error: "Internal Server Error"});
+    }
+})
+
 app.listen(8000, () => {
     console.log('Server running on http://localhost:8000')
 })
