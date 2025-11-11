@@ -96,12 +96,12 @@ function isValidToken(req, res, next) {
 
 // user
 app.get("/user", isValidToken, async (req, res) => {
-    const {email} = req.query;
     try {
+        const {email} = req.user;
         const user = await prisma.user.findUnique({
-            where: {email: email},
+            where: {email},
             select : {
-                id: true,
+                user_id: true,
                 name: true,
                 email: true,
                 role: true
@@ -111,8 +111,10 @@ app.get("/user", isValidToken, async (req, res) => {
         if (!user) {
             return res.status(404).json({message: "User not found"});
         }
+        return res.status(200).json({data: user});
     }
     catch (error) {
+        console.error(error); // or debugging
         return res.status(500).json({error: "Internal Server Error"});
     }
 })
