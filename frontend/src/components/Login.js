@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import './Login.css';
 
 function Login({onLogin, goToRegister}) {
     const [email, setEmail] = useState("");
@@ -6,6 +7,10 @@ function Login({onLogin, goToRegister}) {
     const [error, setError] = useState("");
 
     const handleLogin = async () => {
+        if (!email || !password) {
+            setError("Please enter all details");
+            return;
+        }
         try {
             const response = await fetch("login", {
                 method: "POST",
@@ -25,12 +30,12 @@ function Login({onLogin, goToRegister}) {
         }
     }
     return (
-        <div>
+        <div className='login-container'>
             <h2>Login</h2>
             <input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
             <input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             <button onClick={handleLogin}>Login</button>
-            {error && <p style={{color: "red"}}>{error}</p>}
+            {error && <p className="error-message">{error}</p>}
             <p>Dont have an account? <span onClick={goToRegister} style={{color: "blue", cursor: "pointer"}}>Register</span></p>
         </div>
     )

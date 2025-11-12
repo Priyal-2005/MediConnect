@@ -8,27 +8,30 @@ function App() {
   const [user, setUser] = useState(null);
 
   return (
-    <div>
-      {page === "login" && (
-        <Login 
-        onLogin={(userData) => {
-          setUser(userData);
-          setPage("dashboard");
-        }}
-        goToRegister={() => setPage("register")}/>
-      )}
-      {page === "register" && (
-        <Register
-        onRegister={() => setPage("login")}
-        goToLogin={() => setPage("login")}/>
-      )}
-      {page === "dashboard" && user && (
-        <Dashboard user={user} onLogout={() => {
-          setUser(null);
-          setPage("login");
-        }}/>
-      )}
-    </div>
+    <>
+      <h1 className="app-title">MediConnect</h1>
+      <div>
+        {page === "login" && (
+          <Login 
+          onLogin={(userData) => {
+            setUser(userData);
+            setPage("dashboard");
+          }}
+          goToRegister={() => setPage("register")}/>
+        )}
+        {page === "register" && (
+          <Register
+          onRegister={() => setPage("login")}
+          goToLogin={() => setPage("login")}/>
+        )}
+        {page === "dashboard" && user && (
+          <Dashboard user={user} onLogout={() => {
+            setUser(null);
+            setPage("login");
+          }}/>
+        )}
+      </div>
+    </>
   )
 }
 
