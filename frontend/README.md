@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+FullStack Project Proposal
+1. Project Title
+MediConnect – Full Stack Doctor Appointment Booking System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+2. Problem Statement
+MediConnect is a full-stack doctor appointment booking system that allows patients, doctors, and admins to interact through a single platform. Patients can book appointments with doctors, doctors can manage their schedules, and admins can oversee the system.
 
-## Available Scripts
+3. System Architecture
+Frontend (React.js) → Backend (Node.js + Express.js) → Database (MySQL)
+Frontend: React.js with React Router for page navigation and Fetch API for backend communication
 
-In the project directory, you can run:
 
-### `npm start`
+Backend: Node.js + Express.js
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Database: MySQL (relational database)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Authentication: JWT-based login/signup system for Patients, Doctors, and Admins
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Hosting:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Frontend → Vercel
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Backend → Render
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Database → MySQL Workbench/PlanetScale
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. User Roles
+Patient
+Register/Login to the system
+View list of doctors by specialization
+Book and cancel appointments
+View upcoming & past appointments
+Doctor
+Login with doctor credentials
+View patient bookings
+Approve or reject appointments
+Manage available time slots
+Admin
+Login as admin
+Add or remove doctors
+Manage all appointments and users
 
-## Learn More
+5. Key Features
+Category
+Features
+Authentication & Authorization
+User registration, login, logout; role-based access for Patient, Doctor, and Admin; JWT-based authentication
+CRUD Operations
+Create, read, update, delete users, doctors, and appointments
+Frontend Routing
+React Router pages: Home, Login, Register, Dashboard (role-based), Doctor Details, Appointments, Admin Panel
+Patient Module
+Browse doctors by specialization, view details, book/cancel appointments, view upcoming & past appointments
+Doctor Module
+View appointment requests, approve/reject bookings, manage availability schedule 
+Admin Module
+Approve/reject doctor accounts, manage users and appointments, view system statistics
+Pagination
+Paginate doctor lists and appointment logs for scalability
+Filtering & Sorting
+Filter doctors by specialization, sort by experience, fees, or ratings; search doctors by name
+Hosting
+Frontend deployed on Vercel, backend on Render, database on PlanetScale (MySQL)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+6. Tech Stack
+Layer
+Technologies
+Frontend
+React.js, React Router, Fetch API, CSS
+Backend
+Node.js, Express.js
+Database
+MySQL
+Authentication
+JWT-based login/signup
+Hosting
+Vercel, Render, PlanetScale(MySQL)
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+7. API Overview
+Endpoint
+Method
+Description
+Access
+/api/auth/register
+POST
+Register new user
+Public
+/api/auth/login
+POST
+Authenticate user
+Public
+/api/users/profile
+GET
+Fetch logged-in user’s data
+Authenticated
+/api/doctors
+GET
+List all approved doctors
+Public
+/api/doctors/:id
+GET
+Get doctor details
+Public
+/api/doctors
+POST
+Doctor applies for registration
+Authenticated
+/api/appointments
+POST
+Book an appointment
+Patient
+/api/appointments
+GET
+View user’s appointments
+Authenticated
+/api/admin/doctors
+GET
+Admin manages doctor accounts
+Admin
+/api/admin/appointments
+GET
+View all system appointments
+Admin
