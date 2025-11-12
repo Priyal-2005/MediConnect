@@ -36,7 +36,9 @@ function Login({onLogin, goToRegister}) {
             <input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             <button onClick={handleLogin}>Login</button>
             {error && <p className="error-message">{error}</p>}
-            <p>Dont have an account? <span onClick={goToRegister} style={{color: "blue", cursor: "pointer"}}>Register</span></p>
+            <p className="register-line">
+                Don't have an account? <span className="register-inline-link" onClick={goToRegister}>Register</span>
+            </p>
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import './Dashboard.css';
 
 function Dashboard({user, onLogout}) {
     const [userData, setUserData] = useState(null);
@@ -23,11 +24,11 @@ function Dashboard({user, onLogout}) {
     }
 
     return (
-        <div>
+        <div className="dashboard-container">
             <h1>User Dashboard</h1>
             <h2>Hello {userData.name}!</h2>
             <p>Role: {userData.role}</p>
-            <button onClick={onLogout}>Logout</button>
+            <button className="logout-btn" onClick={onLogout}>Logout</button>
         </div>
     )
 }

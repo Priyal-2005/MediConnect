@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import './Register.css';
 
 function Register({onRegister, goToLogin}) {
     const [name, setName] = useState("");
@@ -30,9 +31,9 @@ function Register({onRegister, goToLogin}) {
         }
     }
     return (
-        <div>
-            <h2>Register</h2>
-            <input placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}/>
+        <div className="register-container">
+            <h2>Create Account</h2>
+            <input placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)}/>
             <input placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
             <input placeholder="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             <select value={role} onChange={(e) => setRole(e.target.value)}>
@@ -40,10 +41,12 @@ function Register({onRegister, goToLogin}) {
                 <option value="DOCTOR">Doctor</option>
                 <option value="ADMIN">Admin</option>
             </select>
-            <button onClick={handleRegister}>Register</button>
+            <button type="button" onClick={handleRegister}>Register</button>
             {error && <p style={{color: "red"}}>{error}</p>}
             {success && <p style={{color: "green"}}>{success}</p>}
-            <p>Already have an account? <span onClick={goToLogin} style={{color:"blue", cursor: "pointer"}}>Login</span></p>
+            <p className="register-line">
+                Already have an account? <span className="register-inline-link" onClick={goToLogin}>Login</span>
+            </p>
         </div>
     )
 }
