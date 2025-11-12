@@ -31,22 +31,22 @@ Backend → Render
 Database → MySQL Workbench/PlanetScale
 
 4. User Roles
-Patient
-Register/Login to the system
-View list of doctors by specialization
-Book and cancel appointments
-View upcoming & past appointments
-Doctor
-Login with doctor credentials
-View patient bookings
-Approve or reject appointments
-Manage available time slots
-Admin
-Login as admin
-Add or remove doctors
-Manage all appointments and users
+Patient:
+* Register/Login to the system
+* View list of doctors by specialization
+* Book and cancel appointments
+* View upcoming & past appointments
+Doctor:
+* Login with doctor credentials
+* View patient bookings
+* Approve or reject appointments
+* Manage available time slots
+Admin:
+* Login as admin
+* Add or remove doctors
+* Manage all appointments and users
 
-5. Key Features
+6. Key Features
 Category
 Features
 Authentication & Authorization
@@ -69,7 +69,7 @@ Hosting
 Frontend deployed on Vercel, backend on Render, database on PlanetScale (MySQL)
 
 
-6. Tech Stack
+7. Tech Stack
 Layer
 Technologies
 Frontend
@@ -84,7 +84,7 @@ Hosting
 Vercel, Render, PlanetScale(MySQL)
 
 
-7. API Overview
+8. API Overview
 Endpoint
 Method
 Description
