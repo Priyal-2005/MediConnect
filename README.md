@@ -36,11 +36,13 @@ Patient:
 * View list of doctors by specialization
 * Book and cancel appointments
 * View upcoming & past appointments
+  
 Doctor:
 * Login with doctor credentials
 * View patient bookings
 * Approve or reject appointments
 * Manage available time slots
+  
 Admin:
 * Login as admin
 * Add or remove doctors
